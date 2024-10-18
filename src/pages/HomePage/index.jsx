@@ -6,6 +6,10 @@ export const HomePage = () => {
   const [candidates, setCandidates] = useState([]);
   const [president, setPresident] = useState(null);
 
+  const handleVote = (name)=>{
+    setPresident(name)
+  }
+
   useEffect(
     () =>
       setCandidates([
@@ -36,7 +40,7 @@ export const HomePage = () => {
             key={c.name}
             name={c.name}
             avatar={c.avatar}
-            onVote={setPresident}
+            onVote={handleVote}
           />
         ))}
       </div>
