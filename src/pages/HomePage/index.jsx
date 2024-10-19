@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Candidate } from '../../components/Candidate';
+import { Castle } from '../../components/Castle';
 import './style.css';
 
 export const HomePage = () => {
@@ -7,7 +8,9 @@ export const HomePage = () => {
   const [president, setPresident] = useState(null);
 
   const handleVote = (name)=>{
-    setPresident(name)
+    if (window.confirm(`Opravdu chcete zvolit kandidáta ${name}?`)) {
+      setPresident(name);
+    } 
   }
 
   useEffect(
@@ -23,16 +26,7 @@ export const HomePage = () => {
 
   return (
     <div className="container">
-      <div className="castle">
-        <div className="castle__image"></div>
-        <div className="castle__body">
-          <h1>Nový prezident</h1>
-          <p className="castle__president">
-            {president === null ? 'Vyberte svého kandidáta' : president}
-          </p>
-        </div>
-      </div>
-
+      <Castle president={president} />
       <h2>Kandidáti</h2>
       <div className="candidate-list">
         {candidates.map((c) => (
