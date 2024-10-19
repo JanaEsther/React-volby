@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { CandidateList } from '../../components/CandidateList';
 import { Castle } from '../../components/Castle';
+import { CandidateList } from '../../components/CandidateList/index';
 import './style.css';
 
 export const HomePage = () => {

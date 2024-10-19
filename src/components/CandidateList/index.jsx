@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import { Candidate } from '../Candidate/index';
 
-const CandidateList = ({candidates, onVote}) => {
+ export const CandidateList = ({ candidates, onVote }) => {
   return (
     <div className="candidate-list">
       {candidates.map((c) => (
@@ -13,4 +14,4 @@ const CandidateList = ({candidates, onVote}) => {
       ))}
     </div>
   );
-}
+};
