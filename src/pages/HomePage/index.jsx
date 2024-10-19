@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Candidate } from '../../components/Candidate';
+import { CandidateList } from '../../components/CandidateList';
 import { Castle } from '../../components/Castle';
 import './style.css';
 
@@ -7,11 +7,11 @@ export const HomePage = () => {
   const [candidates, setCandidates] = useState([]);
   const [president, setPresident] = useState(null);
 
-  const handleVote = (name)=>{
+  const handleVote = (name) => {
     if (window.confirm(`Opravdu chcete zvolit kandidáta ${name}?`)) {
       setPresident(name);
-    } 
-  }
+    }
+  };
 
   useEffect(
     () =>
@@ -28,16 +28,7 @@ export const HomePage = () => {
     <div className="container">
       <Castle president={president} />
       <h2>Kandidáti</h2>
-      <div className="candidate-list">
-        {candidates.map((c) => (
-          <Candidate
-            key={c.name}
-            name={c.name}
-            avatar={c.avatar}
-            onVote={handleVote}
-          />
-        ))}
-      </div>
+      <CandidateList candidates={candidates} onVote={handleVote} />
     </div>
   );
 };
